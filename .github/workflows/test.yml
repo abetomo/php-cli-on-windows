@@ -20,6 +20,7 @@ jobs:
     - name: php env.php with env
       run: |
         $Env:DEBUG = "yes"
+        $Env:PASSWORD = "xxx"
         php env.php
       shell: pwsh
     - name: run.bat
