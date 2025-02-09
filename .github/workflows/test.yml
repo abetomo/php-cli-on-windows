@@ -23,5 +23,5 @@ jobs:
         php env.php
       shell: pwsh
     - name: run.bat
-      run: run.bat
+      run: .\run.bat
       shell: pwsh
