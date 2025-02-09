@@ -1,0 +1,24 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - uses: actions/checkout@v4
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+    - name: php env.php
+      run: php env.php
+      shell: pwsh
+    - name: php env.php with env
+      run: |
+        $Env:DEBUG = "yes"
+        php env.php
+      shell: pwsh
