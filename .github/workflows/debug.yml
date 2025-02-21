@@ -18,6 +18,7 @@ jobs:
       - name: incus config device
         run: |
           set -x
+          ls -l ../
           # mkdir -m 777 logs
           sudo incus admin init --auto
           if [ "${{ matrix.os }}" = "ubuntu-24.04-arm" ]; then
