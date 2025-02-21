@@ -25,6 +25,6 @@ jobs:
           else
             sudo incus launch --quiet images:ubuntu/noble target
           fi
-          sudo incus config device add shift=true target host-rw disk source=$PWD path=/host-rw
+          sudo incus config device add target host-rw disk shift=true source=$PWD path=/host-rw
           # mkdir logs
           sudo incus exec target -- mkdir -p /host-rw/logs/aaa
