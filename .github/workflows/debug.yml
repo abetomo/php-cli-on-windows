@@ -19,7 +19,6 @@ jobs:
         run: |
           set -x
           ls -l ../
-          # mkdir -m 777 logs
           sudo incus admin init --auto
           if [ "${{ matrix.os }}" = "ubuntu-24.04-arm" ]; then
             sudo incus launch --quiet images:ubuntu/noble/arm64 target
@@ -27,5 +26,5 @@ jobs:
             sudo incus launch --quiet images:ubuntu/noble target
           fi
           sudo incus config device add target host-rw disk source=$PWD path=/host-rw
-          # mkdir -m 777 logs
-          sudo incus exec target --user $(id runner -u) -- mkdir -p /host-rw/logs/aaa
+          mkdir logs
+          sudo incus exec target -- mkdir -p /host-rw/logs/aaa
