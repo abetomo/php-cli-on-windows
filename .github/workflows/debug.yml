@@ -26,4 +26,5 @@ jobs:
             sudo incus launch --quiet images:ubuntu/noble target
           fi
           sudo incus config device add target host-rw disk source=$PWD path=/host-rw
+          mkdir -m 777 logs
           sudo incus exec target --user $(sudo id -u) -- mkdir -p /host-rw/logs/aaa
